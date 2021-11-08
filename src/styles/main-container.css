@@ -1,0 +1,9 @@
+.main-container {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    background: #fff;
+    margin: 24px;
+    margin-top: 88px;
+    padding: 24px;
+}
