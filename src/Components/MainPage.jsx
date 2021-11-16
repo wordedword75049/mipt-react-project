@@ -37,6 +37,8 @@ export class MainPage extends React.Component {
     };
 
     render() {
+        let min = moment().minute()
+        let nowTime = moment().add(min > 30 && 1 , 'hours').minutes(min <= 30 ? 30 : 0).format("hh:mm a")
         return (
             <div>
                 <Typography.Title>
@@ -89,7 +91,7 @@ export class MainPage extends React.Component {
                                 format="YYYY-MM-DD HH:mm"
                                 disabledDate={this.disabledDate}
                                 onChange={this.onChange}
-                                showTime={{ defaultValue: moment('00:00', 'HH:mm'), minuteStep: 30}}
+                                showTime={{ defaultValue: moment(nowTime, 'HH:mm'), minuteStep: 30}}
                             />
                         </Form.Item>
 
