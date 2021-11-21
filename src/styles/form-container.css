@@ -1,0 +1,7 @@
+.form-container {
+    display: flex;
+    align-content: flex-start;
+    flex-direction: row;
+    margin: 24px;
+    padding: 24px;
+}
