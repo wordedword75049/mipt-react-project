@@ -2,19 +2,18 @@ import React, {useState, useEffect} from "react";
 import {Octokit} from "@octokit/core";
 import {Typography} from "antd";
 
-const octokit = new Octokit({auth: `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`});
+const octokit = new Octokit({auth: `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`});
 
 function useGithubData(username) {
     const [data, setData] = useState({data: {}});
 
     useEffect(() => {
-        const getData = async () => {
-            const response = await octokit.request('GET /users/{username}', {
+        octokit.request('GET /users/{username}', {
                 username: username
-            });
-            setData(response)
-        };
-        getData();
+            }).then(function (result) {
+                const response = result.data
+                setData(response)
+            })
     }, [username]);
 
     return data;
@@ -29,10 +28,10 @@ export function PageAbout() {
                 О разработчике:
             </Typography.Title>
             <Typography.Paragraph>
-                Имя: {githubProfileData.data.name}
+                Имя: {githubProfileData.name}
             </Typography.Paragraph>
             <Typography.Paragraph>
-                Био: {githubProfileData.data.bio}
+                Био: {githubProfileData.bio}
             </Typography.Paragraph>
         </div>
     );
