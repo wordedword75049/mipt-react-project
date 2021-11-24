@@ -2,10 +2,10 @@ import React, {useState, useEffect} from "react";
 import {Octokit} from "@octokit/core";
 import {Typography} from "antd";
 
-const octokit = new Octokit({auth: `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`});
+const octokit = new Octokit({auth: `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`});
 
 function useGithubData(username) {
-    const [data, setData] = useState({data: {}});
+    const [data, setData] = useState({});
 
     useEffect(() => {
         octokit.request('GET /users/{username}', {
